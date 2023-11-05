@@ -1,0 +1,8 @@
+input = open("input.txt", "r+")
+output = open("output.txt", "w+")
+nums = (input.read().split())
+a = int(nums[0])
+b = int(nums[1])
+output.write(str(a + b))
+input.close()
+output.close()

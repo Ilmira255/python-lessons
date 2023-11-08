@@ -1,3 +1,8 @@
+import json
+import sys
+with open("json.json", "wt") as json_file:
+    json.dump(data, sys.stdout)
+
 def sum(x, y):
     print(x + y)
 
@@ -32,5 +37,3 @@ elif z == 4:
 elif z == 5:
     exponent(x, y)
 
-for line in f.stdin:
-    print(line)

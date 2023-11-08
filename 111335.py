@@ -1,3 +1,5 @@
+import re
+
 input = open("input.txt", "r+")
 output = open("output.txt", "w+")
 lines = 0
@@ -7,7 +9,7 @@ letters = 0
 for line in input:
     lines += 1
     words += len(line.split())
-    letters += len(line.replace(" ", "").replace(".", "").strip('\n'))
+    letters += len(re.findall('[A-Za-z]', line))
 
 letter1 = str(letters) + " letters" + "\n"
 words1 = str(words) + " words" + "\n"

@@ -8,7 +8,7 @@ letters = 0
 
 for line in input:
     lines += 1
-    words += len(line.split())
+    words += len(re.findall(r'\w+', line))
     letters += len(re.findall('[A-Za-z]', line))
 
 letter1 = str(letters) + " letters" + "\n"

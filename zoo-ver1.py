@@ -10,22 +10,22 @@ class Animal:
 class Cage:
     def __init__(self, space):
         self.space = space
+        self.animal_incage = []
 
     def add_animal(self, animal: Animal) -> bool:
-        if animal.space <= self.space:
-            self.animal_incage = animal
+        total_space = sum(animal.space for animal in self.animal_incage)
+        if animal.space + total_space <= self.space:
+            self.animal_incage.append(animal)
             return True
         else:
             return False
 
-    def get_animals(self) -> Animal:
-        return self.animal_incage.name
+    def get_animals(self) -> list:
+        return [str(animal) for animal in self.animal_incage]
 
     def free_space(self):
-        if self.animal_incage is not None:
-            return self.space - self.animal_incage.space
-        else:
-            return self.space
+        total_space = sum(animal.space for animal in self.animal_incage)
+        return self.space - total_space
 
 
 cage1 = Cage(300)
